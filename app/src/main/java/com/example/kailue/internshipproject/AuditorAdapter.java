@@ -49,13 +49,13 @@ public class AuditorAdapter extends RecyclerView.Adapter<AuditorAdapter.MyViewHo
 
     public void onBindViewHolder(MyViewHolder holder, int position) {
         Auditor auditor = auditorList.get(position);
-        holder.name.setText(auditor.getName());
+        holder.name.setText(auditor.getFullName());
 //        holder.email.setText(auditor.getEmail());
         SpannableString content = new SpannableString(auditor.getEmail());
         content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
         holder.email.setText(content);
-        holder.department.setText(auditor.getDepartment());
-        holder.lastAudDate.setText(auditor.getLastAudDate());
+        holder.department.setText(auditor.getDept());
+        holder.lastAudDate.setText("01/05/2017");
 
         holder.email.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -20,10 +20,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class ListActivity extends AppCompatActivity {
 
     private DatabaseReference mDatabase;
 
@@ -36,9 +35,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_list);
 
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("Auditors");
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("UserDatabase");
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
 
@@ -56,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                startActivity(new Intent(ListActivity.this, LoginActivity.class));
                 finish();
             }
         });
@@ -65,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         floatingActionButton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, Checklist.class));
+                startActivity(new Intent(ListActivity.this, ChecklistTest.class));
             }
         });
 
@@ -82,8 +81,10 @@ public class MainActivity extends AppCompatActivity {
                 auditorList.clear();
                 for (DataSnapshot snapShot: dataSnapshot.getChildren()) {
                     Auditor auditor = snapShot.getValue(Auditor.class);
-                    auditorList.add(auditor);
-                    System.out.println(auditor.getName());
+                    if (auditor.getDept().equals("SSQA")) {
+                        auditorList.add(auditor);
+                    }
+
                 }
                 adapter.notifyDataSetChanged();
 

@@ -28,7 +28,7 @@ public class LoginActivity extends AppCompatActivity {
 
         firebaseAuth = FirebaseAuth.getInstance();
         if (firebaseAuth.getCurrentUser() != null) {
-            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+            startActivity(new Intent(LoginActivity.this, ListActivity.class));
             finish();
         }
 
@@ -63,7 +63,7 @@ public class LoginActivity extends AppCompatActivity {
                                     if (!task.isSuccessful()) {
                                         Toast.makeText(getApplicationContext(), "Error to be identified", Toast.LENGTH_SHORT).show();
                                     } else {
-                                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                                        startActivity(new Intent(LoginActivity.this, ListActivity.class));
                                         finish();
                                     }
 

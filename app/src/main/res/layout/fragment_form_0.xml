@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:text="Station :"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/textView5" />
+
+    <!--<EditText-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:inputType="textCapWords"-->
+        <!--android:ems="10"-->
+        <!--android:layout_below="@+id/textView5"-->
+        <!--android:layout_alignParentStart="true"-->
+        <!--android:id="@+id/stationtxt"-->
+        <!--android:hint="eg. Da Nang" />-->
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView5"
+        android:layout_alignParentStart="true"
+        android:id="@+id/spinner"
+        android:prompt="@string/station_prompt"
+        android:spinnerMode="dialog" />
+
+    <TextView
+        android:text="Date :"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/spinner"
+        android:layout_alignParentStart="true"
+        android:id="@+id/textView6" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_below="@+id/textView6"
+        android:layout_alignEnd="@+id/stationtxt"
+        android:id="@+id/startdatetxt"
+        android:inputType="date"
+        android:hint="DD/MM/YYYY"/>
+
+    <TextView
+        android:text="Flight :"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/startdatetxt"
+        android:layout_alignParentStart="true"
+        android:id="@+id/textView7" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:ems="10"
+        android:layout_below="@+id/textView7"
+        android:layout_alignEnd="@+id/startdatetxt"
+        android:id="@+id/flighttxt"
+        android:hint="eg. 123456" />
+
+
+
+</RelativeLayout>

@@ -14,6 +14,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class SignupActivity extends AppCompatActivity {
 
@@ -59,7 +61,7 @@ public class SignupActivity extends AppCompatActivity {
                                     if (!task.isSuccessful()) {
                                         Toast.makeText(SignupActivity.this, "Error to be identified", Toast.LENGTH_SHORT).show();
                                     } else {
-                                        startActivity(new Intent(SignupActivity.this, ListActivity.class));
+                                        startActivity(new Intent(SignupActivity.this, RecordActivity.class));
                                         finish();
                                     }
                                 }
